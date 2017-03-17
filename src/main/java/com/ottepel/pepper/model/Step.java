@@ -1,27 +1,24 @@
-package com.ottepel.pepper.entity;
+package com.ottepel.pepper.model;
 
 /**
  * Created by Alexandr on 17.03.2017.
  */
 public class Step {
-    private Integer id;
+    private Integer number;
     private String title;
     private String description;
     private Integer time;
 
-    public Step(Integer id, String title, String description, Integer time) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.time = time;
+    public Step() {
+
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public String getTitle() {
