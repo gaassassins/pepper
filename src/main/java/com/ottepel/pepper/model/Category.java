@@ -1,4 +1,4 @@
-package com.ottepel.pepper.entity;
+package com.ottepel.pepper.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +10,8 @@ public class Category {
     private String name;
     private List<Recipe> recipeList;
 
-    public Category(String name, List<Recipe> recipeList) {
-        this.name = name;
-        this.recipeList = recipeList;
+    public Category() {
+
     }
 
     public String getName() {

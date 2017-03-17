@@ -1,4 +1,4 @@
-package com.ottepel.pepper.entity;
+package com.ottepel.pepper.model;
 
 /**
  * Created by Alexandr on 17.03.2017.
@@ -7,11 +7,10 @@ public class Ingredient {
     private String name;
     private Integer weight;
     private Integer volume;
+    private String description;
 
-    public Ingredient(String name, Integer weight, Integer volume) {
-        this.name = name;
-        this.weight = weight;
-        this.volume = volume;
+    public Ingredient() {
+
     }
 
     public String getName() {
@@ -36,5 +35,13 @@ public class Ingredient {
 
     public void setVolume(Integer volume) {
         this.volume = volume;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

@@ -1,4 +1,4 @@
-package com.ottepel.pepper.entity;
+package com.ottepel.pepper.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +13,8 @@ public class Recipe {
     private List<String> images;
     private String description;
     private Integer time;
+    private Integer portions;
+    private Integer weight;
     private List<Step> steps;
     private List<Ingredient> ingredients;
     private List<Category> categories;
@@ -67,6 +69,22 @@ public class Recipe {
 
     public void setTime(Integer time) {
         this.time = time;
+    }
+
+    public Integer getPortions() {
+        return portions;
+    }
+
+    public void setPortions(Integer portions) {
+        this.portions = portions;
+    }
+
+    public Integer getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Integer weight) {
+        this.weight = weight;
     }
 
     public List<Step> getSteps() {
