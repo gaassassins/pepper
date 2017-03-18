@@ -7,7 +7,7 @@
     <groupId>com.ottepel.pepper</groupId>
     <artifactId>Pepper</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <properties>
         <start-class>com.ottepel.pepper.Application</start-class>
@@ -19,7 +19,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>${spring-boot}</version>
+        <version>1.5.2.RELEASE</version>
     </parent>
 
     <dependencies>
