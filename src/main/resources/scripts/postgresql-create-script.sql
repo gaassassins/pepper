@@ -1,39 +1,65 @@
-CREATE TABLE category (
-  id    SERIAL PRIMARY KEY NOT NULL,
-  title VARCHAR(80)        NOT NULL
+CREATE TABLE category
+(
+  id    INTEGER PRIMARY KEY NOT NULL,
+  title VARCHAR(255)
 );
 
-CREATE TABLE recipe (
-  id              SERIAL PRIMARY KEY NOT NULL,
-  name            VARCHAR(80)        NOT NULL,
-  title_image_url VARCHAR(80)        NOT NULL,
-  description     VARCHAR(1500),
-  time            INT                NOT NULL
+CREATE TABLE recipe
+(
+  id              INTEGER NOT NULL,
+  description     CHARACTER VARYING(255),
+  name            CHARACTER VARYING(255),
+  portions        INTEGER,
+  "time"          INTEGER,
+  title_image_url CHARACTER VARYING(255),
+  weight          INTEGER,
+  CONSTRAINT recipe_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE step (
-  id          SERIAL PRIMARY KEY NOT NULL,
-  title       VARCHAR(80)        NOT NULL,
-  description VARCHAR(1500),
-  time        INT                NOT NULL,
-  recipe      INT REFERENCES recipe (id)
+CREATE TABLE category_recipe
+(
+  category_id INTEGER NOT NULL,
+  recipe_id   INTEGER NOT NULL,
+  CONSTRAINT fkgwuruanm72d9as4tdwg3o5w0b FOREIGN KEY (recipe_id)
+  REFERENCES recipe (id) MATCH SIMPLE
+  ON UPDATE NO ACTION ON DELETE NO ACTION,
+  CONSTRAINT fksfjvxlr4pyein5kiuau8560q8 FOREIGN KEY (category_id)
+  REFERENCES category (id) MATCH SIMPLE
+  ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE ingredient (
-  name   VARCHAR(40) PRIMARY KEY NOT NULL,
-  weight INT,
-  volume INT,
-  recipe INT REFERENCES recipe (id)
+CREATE TABLE images
+(
+  id        INTEGER NOT NULL,
+  url       CHARACTER VARYING(255),
+  recipe_id INTEGER,
+  CONSTRAINT images_pkey PRIMARY KEY (id),
+  CONSTRAINT fk3yk8md41sys9hrbte3eenlmua FOREIGN KEY (recipe_id)
+  REFERENCES recipe (id) MATCH SIMPLE
+  ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE recipe_images (
-  int    SERIAL PRIMARY KEY NOT NULL,
-  recipe INT REFERENCES recipe (id),
-  image  VARCHAR(80)
+CREATE TABLE ingredient
+(
+  id        INTEGER NOT NULL,
+  name      CHARACTER VARYING(255),
+  volume    INTEGER,
+  weight    INTEGER,
+  recipe_id INTEGER,
+  CONSTRAINT ingredient_pkey PRIMARY KEY (id),
+  CONSTRAINT fkj0s4ywmqqqw4h5iommigh5yja FOREIGN KEY (recipe_id)
+  REFERENCES recipe (id) MATCH SIMPLE
+  ON UPDATE NO ACTION ON DELETE NO ACTION
 );
-
-CREATE TABLE category_recipe (
-  id       SERIAL PRIMARY KEY                      NOT NULL,
-  category INT REFERENCES category (id)            NOT NULL,
-  recipe   INT REFERENCES recipe (id)              NOT NULL
+CREATE TABLE step
+(
+  id          INTEGER NOT NULL,
+  description CHARACTER VARYING(255),
+  "time"      INTEGER,
+  title       CHARACTER VARYING(255),
+  recipe_id   INTEGER,
+  CONSTRAINT step_pkey PRIMARY KEY (id),
+  CONSTRAINT fkpwpbn24pd57073jm669d7dwt9 FOREIGN KEY (recipe_id)
+  REFERENCES recipe (id) MATCH SIMPLE
+  ON UPDATE NO ACTION ON DELETE NO ACTION
 );
