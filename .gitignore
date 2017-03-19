@@ -1,6 +1,10 @@
 /.idea
 /.mvn
-/target
+/target/classes
+/target/generated-sources
+/target/maven-archiver
+/target/generated-test-sources
+/target/test-classes
 mvnw
 mvnw.cmd
 Pepper.iml

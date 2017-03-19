@@ -1,0 +1,13 @@
+com\ottepel\pepper\repository\RecipeEntityRepository.class
+com\ottepel\pepper\config\DataConfig.class
+com\ottepel\pepper\repository\ImagesEntityRepository.class
+com\ottepel\pepper\Application.class
+com\ottepel\pepper\repository\StepEntityRepository.class
+com\ottepel\pepper\entity\CategoryEntity.class
+com\ottepel\pepper\entity\IngredientEntity.class
+com\ottepel\pepper\repository\CategoryEntityRepository.class
+com\ottepel\pepper\web\rest\PepperController.class
+com\ottepel\pepper\entity\StepEntity.class
+com\ottepel\pepper\repository\IngredientEntityRepository.class
+com\ottepel\pepper\entity\ImagesEntity.class
+com\ottepel\pepper\entity\RecipeEntity.class
