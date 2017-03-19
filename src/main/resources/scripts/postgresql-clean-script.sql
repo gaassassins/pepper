@@ -1,0 +1,7 @@
+DELETE FROM Category_Recipe;
+DELETE FROM Image;
+DELETE FROM Step;
+DELETE FROM Recipe;
+DELETE FROM Users;
+DELETE FROM Ingredient;
+DELETE FROM Category;
