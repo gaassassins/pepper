@@ -1,5 +1,7 @@
 package com.ottepel.pepper.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -11,42 +13,51 @@ public class IngredientEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
     @Column(name = "name")
     private String name;
 
     @Column(name = "weight")
-    private int weight;
+    private Integer weight;
 
     @Column(name = "volume")
-    private int volume;
+    private Integer volume;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "recipe_id")
     private RecipeEntity recipe;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getWeight() {
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 
-    public int getVolume() {
+    public Integer getVolume() {
         return volume;
     }
 
-    public void setVolume(int volume) {
+    public void setVolume(Integer volume) {
         this.volume = volume;
     }
 
@@ -58,14 +69,6 @@ public class IngredientEntity {
         this.recipe = recipe;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,19 +76,19 @@ public class IngredientEntity {
 
         IngredientEntity that = (IngredientEntity) o;
 
-        if (id != that.id) return false;
-        if (weight != that.weight) return false;
-        if (volume != that.volume) return false;
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
+        if (weight != null ? !weight.equals(that.weight) : that.weight != null) return false;
+        if (volume != null ? !volume.equals(that.volume) : that.volume != null) return false;
         return recipe != null ? recipe.equals(that.recipe) : that.recipe == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + weight;
-        result = 31 * result + volume;
+        result = 31 * result + (weight != null ? weight.hashCode() : 0);
+        result = 31 * result + (volume != null ? volume.hashCode() : 0);
         result = 31 * result + (recipe != null ? recipe.hashCode() : 0);
         return result;
     }

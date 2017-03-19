@@ -1,17 +1,11 @@
 package com.ottepel.pepper.web.rest;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.ottepel.pepper.entity.CategoryEntity;
-import com.ottepel.pepper.entity.IngredientEntity;
-import com.ottepel.pepper.entity.RecipeEntity;
-import com.ottepel.pepper.entity.StepEntity;
+import com.ottepel.pepper.entity.*;
 import com.ottepel.pepper.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,15 +34,13 @@ public class PepperController {
         return recipeRepository.findAll();
     }
 
-    @RequestMapping("/cat")
+    @RequestMapping("/categories")
     public List<CategoryEntity> getCategories() {
-        List<CategoryEntity> list = categoryRepository.findAll();
-//        Gson gson = new GsonBuilder()
-//                .setPrettyPrinting()
-//                .create();
-//
-//        System.out.println(gson.toJson(list));
+        return categoryRepository.findAll();
+    }
 
-        return list;
+    @RequestMapping("/ingredients")
+    public List<IngredientEntity> getIngredients() {
+        return ingredientRepository.findAll();
     }
 }

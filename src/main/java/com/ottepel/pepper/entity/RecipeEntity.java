@@ -42,7 +42,7 @@ public class RecipeEntity {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe")
     private List<IngredientEntity> ingredients;
 
-    @ManyToMany(mappedBy = "recipes", cascade = CascadeType.DETACH)
+    @ManyToMany(mappedBy= "recipes")
     private List<CategoryEntity> categories;
 
     public int getId() {

@@ -1,5 +1,7 @@
 package com.ottepel.pepper.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -17,6 +19,7 @@ public class ImagesEntity {
     @Column(name = "url")
     private String url;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "recipe_id")
     private RecipeEntity recipe;

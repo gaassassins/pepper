@@ -1,5 +1,7 @@
 package com.ottepel.pepper.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -22,6 +24,7 @@ public class StepEntity {
     @Column(name = "time")
     private int time;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "recipe_id")
     private RecipeEntity recipe;
